@@ -14,7 +14,7 @@ env:
 
 jobs:
   unit-testing:
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     name: Unit Testing
     steps:
       - name: Checkout Repo
