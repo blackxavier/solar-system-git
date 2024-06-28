@@ -7,10 +7,10 @@ on:
     #   - main
     #   - "feature/*"
 
-env:
-  MONGO_PASSWORD: ${{ secrets.MONGO_DB_PASSWORD }}
-  MONGO_URI: ${{ secrets.MONGO_DB_URI }}
-  MONGO_USERNAME: ${{ secrets.MONGO_DB_USERNAME }}
+# env:
+#   MONGO_PASSWORD: ${{ secrets.MONGO_DB_PASSWORD }}
+#   MONGO_URI: ${{ secrets.MONGO_DB_URI }}
+#   MONGO_USERNAME: ${{ secrets.MONGO_DB_USERNAME }}
 
 jobs:
   unit-testing:
@@ -27,7 +27,3 @@ jobs:
         run: npm install
       - name: Run Tests
         run: npm test
-       
-        
-
-        
