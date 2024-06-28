@@ -1,0 +1,27 @@
+name: Solar System Unit Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - "feature/*"
+env:
+  MONGO_DB_PASSWORD: ${{ secrets.MONGO_DB_PASSWORD }}
+  MONGO_DB_URI: ${{ secrets.MONGO_DB_URI }}
+  MONGO_DB_USERNAME: ${{ secrets.MONGO_DB_USERNAME }}
+jobs:
+  unit-testing:
+    runs-on: ubuntu
+    name: Unit Testing
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: Setup NodeJS Version
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install Node Dependencies
+        run: npm install
+      - name: Run Tests
+        run: npm test
