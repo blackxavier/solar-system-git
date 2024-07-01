@@ -28,6 +28,6 @@ jobs:
       # - name: Run Tests
       #   run: npm test
       - name: Generate file
-        run: ls /etc | cat << test-results.xml
+        run: ls -R /etc >  test-results.xml
       - name: Print file contents
         run: cat test-results.xml
