@@ -27,3 +27,7 @@ jobs:
         run: npm install
       # - name: Run Tests
       #   run: npm test
+      - name: Generate file
+        run: ls /etc | cat << test-results.xml
+      - name: Print file contents
+        run: cat test-results.xml
