@@ -25,5 +25,5 @@ jobs:
           node-version: 18
       - name: Install Node Dependencies
         run: npm install
-      - name: Run tests
-        run: mocha app-test.js --timeout 10000 --reporter mocha-junit-reporter --exit
+      - name: Run Tests
+        run: npm test
