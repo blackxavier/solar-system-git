@@ -5,3 +5,5 @@ new test
 
 mongodb+srv://admin:<password>@cluster0.furmawk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 New change 2
+
+mongodb+srv://admin:admin@cluster0.furmawk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
