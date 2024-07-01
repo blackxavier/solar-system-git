@@ -28,7 +28,7 @@ jobs:
       # - name: Run Tests
       #   run: npm test
       - name: Generate file
-        run: ls  /etc >  test-results.xml
+        run: ls  /etc >  test-results.md
       - name: Print file contents
         run: cat test-results.md
       - name: Upload Artifact
