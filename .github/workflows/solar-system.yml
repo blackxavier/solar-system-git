@@ -41,7 +41,7 @@ jobs:
         run: npm test
 
       - name: Generate file
-        if: steps.npm-test.outputs == 'failure' || steps.npm-test.outputs == 'success'
+        if: steps.npm-test.outcome == 'failure' || steps.npm-test.outcome == 'success'
         run: ls  /etc >  test-results.md
 
       - name: Print file contents
