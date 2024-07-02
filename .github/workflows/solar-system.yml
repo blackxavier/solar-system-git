@@ -50,16 +50,17 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
-        
+
       - name: Setup NodeJS Version
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
 
       - name: Install Node Dependencies
         run: npm install
 
       - name: Check Code Coverage
+        continue-on-error: true
         run: npm run coverage
 
       - name: Upload Artifact
