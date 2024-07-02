@@ -41,7 +41,7 @@ jobs:
         run: npm test
 
       - name: Generate file
-        if: steps.npm-test.outcome == 'failure' || steps.npm-test.outcome == 'success'
+        if: failure() && (steps.npm-test.outcome == 'failure' || steps.npm-test.outcome == 'success')
         uses: actions/upload-artifact@v4
         with:
           name: test-results.xml ${{matrix.node-version}}  ${{matrix.os}}
