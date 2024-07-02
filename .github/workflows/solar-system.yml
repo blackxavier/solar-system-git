@@ -55,7 +55,7 @@ jobs:
 
   code-coverage:
     runs-on: ubuntu-latest
-    name: Unit Testing
+    name: Code Coverage
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
