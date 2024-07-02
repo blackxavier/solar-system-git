@@ -42,6 +42,12 @@ jobs:
 
       - name: Generate file
         if: steps.npm-test.outcome == 'failure' || steps.npm-test.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results.xml ${{matrix.node-version}}  ${{matrix.os}}
+          path: test-results.xml
+
+      - name: Generate file
         run: ls  /etc >  test-results.md
 
       - name: Print file contents
