@@ -12,7 +12,6 @@ env:
   MONGO_URI: ${{ secrets.MONGO_URI }}
   MONGO_USERNAME: ${{ secrets.MONGO_USERNAME }}
 
-
 jobs:
   unit-testing:
     strategy:
@@ -27,19 +26,27 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+
       - name: Setup NodeJS Version  ${{matrix.node-version}}
         uses: actions/setup-node@v4
         with:
           node-version: ${{matrix.node-version}}
+
       - name: Install Node Dependencies
         run: npm install
+
       - name: Run Tests
-        continue-on-error: true
+        # continue-on-error: true
+        id: npm-test
         run: npm test
+
       - name: Generate file
+        if: steps.npm-test.outputs == 'failure' || steps.npm-test.outputs == 'success'
         run: ls  /etc >  test-results.md
+
       - name: Print file contents
         run: cat test-results.md
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
