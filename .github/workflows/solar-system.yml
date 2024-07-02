@@ -12,7 +12,7 @@ env:
   MONGO_URI: ${{ secrets.MONGO_URI }}
   MONGO_USERNAME: ${{ secrets.MONGO_USERNAME }}
 
-  
+
 jobs:
   unit-testing:
     strategy:
@@ -33,8 +33,9 @@ jobs:
           node-version: ${{matrix.node-version}}
       - name: Install Node Dependencies
         run: npm install
-      # - name: Run Tests
-      #   run: npm test
+      - name: Run Tests
+        continue-on-error: true
+        run: npm test
       - name: Generate file
         run: ls  /etc >  test-results.md
       - name: Print file contents
